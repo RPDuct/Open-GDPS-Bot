@@ -31,7 +31,7 @@ ratechannel: put the channel ID where you want the bot to report new rates. Leav
 emotes: Make a small server and add all emotes from [the emote folder](emotes/) and after that for every emote type the message `\:emote name:` and copy what discord puts in the channel and put that in the right emote spot.
 
 ### Uploading
-The boy should be ready now and now it's just a matter of uploading it.  
+The bot should be ready now and now it's just a matter of uploading it.  
 Go to the site [Heroku](https://heroku.com) and register a new account if you haven't already.  
 Then go to the dashboard and create a new app here.
 <br><br>
