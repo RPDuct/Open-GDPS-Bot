@@ -25,7 +25,7 @@ Then, you get the files from the [main](main/) folder and put those on a new **P
 #### Config file
 prefix: Change this to the prefix you want to use (keeping it empty also works but it isn't recommended).<br><br>
 token: Paste the token you copied from the discord dev portal in this string (**DON'T SHARE THIS TOKEN**).<br><br>
-ownerid: Replace this with your discord userID, this will give you access to owner commands. If you don't know how to get a userID read [this](https://support.discordapp.com/hc/nl/articles/360000291932).<br><br>
+ownerid: Replace this with your discord userID, this will give you access to the owner commands. If you don't know how to get a userID read [this](https://support.discordapp.com/hc/nl/articles/360000291932).<br><br>
 host: Put the main folder of your GDPS here **WITHOUT** a `/` at the end.<br><br>
 ratechannel: put the channel ID where you want the bot to report new rates. Leaving it empty will make the bot not send new rates. To copy a channel ID just right click on the channel and copy the ID.<br><br>
 emotes: Make a small server and add all emotes from [the emote folder](emotes/) and after that for every emote type the message `\:emote name:` and copy what discord puts in the channel and put that in the right emote spot.
