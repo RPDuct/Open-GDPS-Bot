@@ -4,7 +4,7 @@ An open source discord bot for Geometry Dash private servers
 ## How to setup
 
 ### Server side
-First you install this repo. Unpack the zip and place the [bot](bot/) folder in your main folder of your GDPS (the main root is the folder with all the main files and folders and is most of the time the database folder).
+First you install this repo. Unpack the zip and place the [bot](bot/) folder in your main folder of your GDPS (the main folder is the folder with all the main files and folders and is most of the time the database folder).
 
 ### Bot
 First go to the [discord dev portal](https://discordapp.com/developers/applications/) and make a new application (use an original name because you can't make a bot with an application name like `bot`).
