@@ -29,3 +29,32 @@ ownerid: Replace this with your discord userID, this will give you access to own
 host: Put the main folder of your GDPS here **WITHOUT** a `/` at the end.<br><br>
 ratechannel: put the channel ID where you want the bot to report new rates. Leaving it empty will make the bot not send new rates. To copy a channel ID just right click on the channel and copy the ID.<br><br>
 emotes: Make a small server and add all emotes from [the emote folder](emotes/) and after that for every emote type the message `\:emote name:` and copy what discord puts in the channel and put that in the right emote spot.
+
+### Uploading
+The boy should be ready now and now it's just a matter of uploading it.  
+Go to the site [Heroku](https://heroku.com) and register a new account if you haven't already.  
+Then go to the dashboard and create a new app here.
+<br><br>
+![fix your internet bro, this is an image](https://smjs.eu/dibot/img4.png)
+<br><br><br>
+Once you did that go to `Deploy` and press on the GitHub button.
+<br><br>
+![fix your internet bro, this is an image](https://smjs.eu/dibot/img5.png)
+<br><br><br>
+Connect your GitHub account to Heroku and then type in the repo name of your bot and click search.  
+Press connect and scroll all the way down and press `Deploy Branch` (I don't recommend pressing `Enable Automatic Deploys`)  
+After the site shows the bot has been deployed go to resources, refresh the page and click the little edit icon first on the web part, disable that, then on the worker part and enable that.
+<br><br>
+![fix your internet bro, this is an image](https://smjs.eu/dibot/img6.png)
+<br><br><br>
+Now press on `More` and then `View logs` and check if the bot gave an output telling you that it's logged in.
+<br><br>
+![fix your internet bro, this is an image](https://smjs.eu/dibot/img7.png)
+<br><br><br>
+
+### You're done!
+Invite your bot with as link `https://discordapp.com/oauth2/authorize?client_id=YOUR_BOT_CLIENT_ID&scope=bot&permissions=8` and replace `YOUR_BOT_CLIENT_ID` with the client ID of your bot which you can find here:
+<br><br>
+![fix your internet bro, this is an image](https://smjs.eu/dibot/img8.png)
+<br><br><br>
+Just as a last test try the command `[your prefix]test` in the server where your bot is. If this for some reason doesn't work go back to the Heroku console and DM me on discord (SMJS#3044) a screenshot of the console output.
