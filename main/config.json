@@ -1,0 +1,25 @@
+{
+    "prefix": "g!",
+    "token": "NjQ0ODQ1OTY3MzY3MjA4OTYx.Xc598Q.50vOUfMHDdcr22NinACDTtf5pW8",
+    "ownerid": "373128858687373323",
+    "host": "http://smjs.eu/gd/unlock/database",
+    "ratechannel": "644847732267417601",
+    "emotes": {
+        "star": "<:star:641227043203448842>",
+        "diamond": "<:diamond:641227067580743693>",
+        "coin": "<:coin:641227099415379978>",
+        "usercoin": "<:usercoin:641227123842875394>",
+        "demon": "<:demon:641227151898574848>",
+        "cp": "<:cp:641227172740202496>",
+        "rank": "<:rank:641230700649119744>",
+        "yt": "<:yt:641308367096250378>",
+        "twitch": "<:twitch:641308394745102336>",
+        "twitter": "<:twitter:641308421735579649>",
+        "like": "<:like:641988457509421066>",
+        "dislike": "<:dislike:641988504884215808>",
+        "downloads": "<:downloads:644201062890340382>",
+        "time": "<:time:644200944879403038>",
+        "highobj": "<:high:644205436307767324>",
+        "collab": "<:collab:644205486580826122>"
+    }
+}

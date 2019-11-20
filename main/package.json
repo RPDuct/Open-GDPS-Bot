@@ -1,0 +1,16 @@
+{
+  "name": "smjsbot",
+  "version": "0.0.1",
+  "description": "just a random bot",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js"
+  },
+  "author": "SMJS",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^11.5.1",
+    "request": "^2.88.0",
+    "string-pixel-width": "^1.10.0"
+  }
+}
