@@ -21,6 +21,6 @@ require('./bg/construct-config.js').build.then(function(config) {
 
     //trigger the command handle on message
     client.on('message', message => {
-        require('./commandHandle.js').handle(message);
+        require('./commandHandle.js').handle(message, client);
     });
 });
