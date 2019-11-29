@@ -7,7 +7,11 @@ function exeptions(message, config) {
     if ((message.content.startsWith(config.prefix + "comments ") && "comments".length != message.content.length - 2) || "comments".length == message.content.length - 2) {
         let args = message.content.split(' ');
         if (typeof args[1] !== 'undefined') {
-                init(message, args, config);
+            let user = "";
+            for (let i = 1; i < args.length; i++) {
+                user += " " + args[i];
+            }
+            build(message, user, config);
         } else {
             message.channel.send(config.error.acformat + "<@" + message.author.id + ">");
         }
@@ -16,10 +20,9 @@ function exeptions(message, config) {
     }
 }
 
-function init(message, args, config) {
+function build(message, args, config) {
     let page = 1;
     let user = args[1].replace(/[^a-zA-Z0-9]+$/, "");
-    let description;
     if (typeof args[2] !== "undefined") {
         page = args[2];
     }
@@ -28,11 +31,10 @@ function init(message, args, config) {
             if (error) throw error;
             if (body != "") {
                 let info = body.split("~");
+                const embed = new Discord.RichEmbed().setColor(config.embedcolors.dark);
                 if (info[0] == 0) {
-                    description = "The user you're searching for wasn't found.";
-                    const embed = new Discord.RichEmbed()
-                        .setColor(config.embedcolors.dark)
-                        .setTitle("User wasn't found");
+                    let description = "The user you're searching for wasn't found.";
+                    embed.setTitle("User wasn't found");
                     if (typeof info[1] !== "undefined" && info[1] != "") {
                         let suggest = info[1].split(",");
                         let people = "";
@@ -49,10 +51,8 @@ function init(message, args, config) {
                     message.channel.send(embed);
                 } else {
                     if (typeof info[1] !== "undefined" && info[1] != "") {
-                        const embed = new Discord.RichEmbed()
-                            .setColor(config.embedcolors.dark)
-                            .setTitle(info[0] + "'s account comments page " + page);
                         let output = info[1].split(";");
+                        embed.setTitle(info[0] + "'s account comments page " + page);
                         output.forEach(function(elem) {
                             let person = elem.split(",");
                             let emote = config.emotes.like;
