@@ -1,6 +1,6 @@
 module.exports = {
     handle: function(message) {
-        require('./../bg/construct-config.js').build.then(function(config) {
+        require('./bg/construct-config.js').build.then(function(config) {
             if (typeof config !== 'undefined') {
                 if (message.author.bot) return;
                 if (message.content.startsWith(config.prefix)) {
