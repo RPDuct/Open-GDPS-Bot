@@ -41,6 +41,8 @@ module.exports = {
                         require('./commands/seelevel.js').start(message, config);
                     }
                 }
+            } else {
+                message.channel.send(config.error.pload + "<@" + message.author.id + ">");
             }
         });
     }
