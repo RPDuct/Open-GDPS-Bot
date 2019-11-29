@@ -107,6 +107,8 @@ function init(level, message, config) {
                 }
                 message.channel.send(embed);
             }
+        } else {
+            message.channel.send(config.error.pload + "<@" + message.author.id + ">");
         }
     });
 }
