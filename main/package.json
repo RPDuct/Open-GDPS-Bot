@@ -1,13 +1,13 @@
 {
   "name": "smjsbot",
-  "version": "0.0.1",
-  "description": "just a random bot",
+  "version": "0.1.0",
+  "description": "A bot meant to function like the UGD bot but for GD private servers",
   "main": "main.js",
   "scripts": {
     "start": "node main.js"
   },
   "author": "SMJS",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "discord.js": "^11.5.1",
     "request": "^2.88.0",
