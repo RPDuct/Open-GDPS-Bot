@@ -7,11 +7,7 @@ function exeptions(message, config) {
     if ((message.content.startsWith(config.prefix + "comments ") && "comments".length != message.content.length - 2) || "comments".length == message.content.length - 2) {
         let args = message.content.split(' ');
         if (typeof args[1] !== 'undefined') {
-            let user = "";
-            for (let i = 1; i < args.length; i++) {
-                user += " " + args[i];
-            }
-            build(message, user, config);
+            build(message, args, config);
         } else {
             message.channel.send(config.error.acformat + "<@" + message.author.id + ">");
         }
@@ -74,6 +70,8 @@ function build(message, args, config) {
                     }
                 }
             }
+        } else {
+            message.channel.send(config.error.pload + "<@" + message.author.id + ">");
         }
     });
 }
