@@ -65,6 +65,8 @@ function init(message, user, config) {
             } else {
                 message.channel.send(config.error.usinvaliduser + "<@" + message.author.id + ">");
             }
+        } else {
+            message.channel.send(config.error.pload + "<@" + message.author.id + ">");
         }
     });
 }
