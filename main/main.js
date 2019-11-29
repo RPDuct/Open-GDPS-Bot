@@ -1,41 +1,26 @@
 const Discord = require('discord.js');
-const command = require('./commandHandle.js')
-const rate = require('./bg/fetchrate.js');
-const con = require('./config.json');
-const process = require("process");
-const request = require('request');
 const client = new Discord.Client();
-let config;
 
-client.on('ready', () => {
-    console.log(`Logged in as ${client.user.tag}!`);
-    console.log("Pid: " + process.pid);
-    console.log("Ppid: " + process.ppid);
-    let time = Date.now();
-    console.log("Boot timestamp: " + time);
+//making the config
+require('./bg/construct-config.js').build.then(function(config) {
+    //logging in
+    client.login(config.token);
 
-    if (con.ratechannel != "") {
-        const interval = setInterval(function() {
-            rate.start(client, config, time);
-            time = Date.now();
-        }, 10000);
-    }
-});
-client.on('message', message => {
-    if (typeof config !== 'undefined') {
-        if (message.author.bot) return;
-        if (message.content.startsWith(config.prefix)) {
-            command.checkcommand(message, client, config);
-        }
-    }
-});
+    //doing some stuff after being logged in
+    client.on('ready', () => {
+        //giving some details about this session
+        console.log("Logged in as " + client.user.tag);
+        console.log("Pid: " + process.pid);
+        console.log("Ppid: " + process.ppid);
+        let time = Date.now();
+        console.log("Boot timestamp: " + time);
 
-request("https://smjs.eu/dibot/jsoninfo.php?host=" + con.host, function (error, response, body) {
-    if (error) throw error;
-    if (body == "") {
-        process.exit(0);
-    } else {
-        config = Object.assign({}, con, JSON.parse(body));
-        client.login(con.token);
-    }
+        //start the rate check interval
+        require('./bg/fetchrate.js').start(client, config, time);
+    });
+
+    //trigger the command handle on message
+    client.on('message', message => {
+        require('./commandHandle.js').handle(message, config);
+    });
 });
