@@ -17,7 +17,7 @@ module.exports = {
                 }
                 message.channel.send(embed);
             } else {
-                message.channel.send("There was a problem fetching the most recent version.");
+                message.channel.send(config.error.pload + "<@" + message.author.id + ">");
             }
         });
     }
