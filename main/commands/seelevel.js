@@ -26,22 +26,23 @@ function init(level, message, config) {
             if (error) throw error;
             if (body != "") {
                 let output = "";
-                let data = body.split(":")
-                const embed = new Discord.RichEmbed()
+                let data = body.split(":");
+                const embed = new Discord.RichEmbed();
                 if (data[0] == "0") {
                     let suggestions = data[1].split(";");
-                    embed.setTitle("This level wasn't found.");
-                    if (suggestions[0] != '') {
+                    let desc = "We couldn't find this level.";
+                    if (suggestions[0] != "") {
                         for (let i = 0; i < suggestions.length; i++) {
                             output += suggestions[i] + "\n";
                         }
                     }
-                    let desc = "We couldn't find this level.";
                     if (output != "") {
                         desc += " But we do have some levels you maybe tried to search.";
-                        embed.addField(config.embedsplit.short, output);
                     }
-                    embed.setDescription(desc)
+                    embed
+                        .setTitle("This level wasn't found.")
+                        .setDescription(desc)
+                        .addField(config.embedsplit.short, output);
                 } else {
                     let info = data[1].split("~");
                     let coins = "";
@@ -84,7 +85,7 @@ function init(level, message, config) {
                             time = "XL";
                             break;
                         default:
-                            time = "Bruh?"
+                            time = "Bruh?";
                             break;
                     }
                     
@@ -112,6 +113,6 @@ function init(level, message, config) {
 
 module.exports = {
     start: function(message, config) {
-        exeptions(message, config)
+        exeptions(message, config);
     }
 }
