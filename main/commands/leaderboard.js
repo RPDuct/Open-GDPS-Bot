@@ -84,6 +84,8 @@ function build(message, page, creator, config) {
             } else {
                 message.channel.send(config.error.invalidpage + "<@" + message.author.id + ">");
             }
+        } else {
+            message.channel.send(config.error.pload + "<@" + message.author.id + ">");
         }
     });
 }
