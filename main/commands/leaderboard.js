@@ -8,11 +8,11 @@ function exeptions(message, config) {
         let args = message.content.split(' ');
         if (typeof args[1] !== 'undefined') {
             if (!isNaN(args[1]) && args[1] < 2147483647 && args[1] >= 1) {
-                init(message, args[1], false, config);
+                build(message, args[1], false, config);
             } else if (args[1] == "creator") {
                 if (typeof args[2] !== 'undefined') {
-                    if (!isNaN(args[2]) && args[2] < 2147483647 && args[2] >= 1) {
-                        init(message, args[2], true, config);
+                    if (!isNaN(args[2])) {
+                        build(message, args[2], true, config);
                     } else {
                         message.channel.send(config.error.lbinvalidnum + "<@" + message.author.id + ">");
                     }
@@ -30,9 +30,9 @@ function exeptions(message, config) {
     }
 }
 
-function init(message, page, creator, config) {
-    page--;
+function build(message, page, creator, config) {
     let type;
+    page--;
     if (creator) {
         type = "&type=creator";
     } else {
@@ -45,23 +45,21 @@ function init(message, page, creator, config) {
                 let people = body.split(";");
                 let output = "";
                 let spot = page * 20 + 1;
+                let firstspot = spot;
+                let emoji;
+                let commanduse = "Use `" + config.prefix + "leaderboard ";
                 people.forEach(function(elem) {
                     let person = elem.split(",");
                     let extra = "";
                     let extracount = "";
-                    if (spot < 1000) {
-                        extra += " ‌";
-                        if (spot < 100) {
+                    if (firstspot.toString().length != (20 + firstspot).toString().length) {
+                        for (let i = firstspot.toString().length; i >= spot.toString().length; i--) {
                             extra += " ‌";
-                            if (spot < 10) {
-                                extra += " ‌";
-                            }
                         }
                     }
-                    while (pixelWidth(extracount, {size: 14}) + pixelWidth(person[1], {size: 14}) < 40) {
+                    while (pixelWidth(extracount, {size: 14}) + pixelWidth(person[1], {size: 14}) < 75) {
                         extracount += " ‌";
                     }
-                    let emoji;
                     if (creator) {
                         emoji = config.emotes.cp;
                     } else {
@@ -70,12 +68,11 @@ function init(message, page, creator, config) {
                     output += "`#" + extra + spot + "`|" + emoji + "`" + extracount + person[1] + "`| " + person[0] + "\n";
                     spot++;
                 });
-                let commanduse = "Use `" + config.prefix + "leaderboard ";
-                    if (creator) {
-                        commanduse += "[page]` to get\nthe player leaderboards.";
-                    } else {
-                        commanduse += "creator [page]`\nto get the creator leaderboards.";
-                    }
+                if (creator) {
+                    commanduse += "[page]` to get\nthe player leaderboards.";
+                } else {
+                    commanduse += "creator [page]`\nto get the creator leaderboards.";
+                }
                 page++;
                 const leaderboards = new Discord.RichEmbed()
                     .setColor(config.embedcolors.dark)
