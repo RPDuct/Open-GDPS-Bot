@@ -1,5 +1,5 @@
 module.exports = {
-    handle: function(message) {
+    handle: function(message, client) {
         require('./bg/construct-config.js').build.then(function(config) {
             if (typeof config !== 'undefined') {
                 if (message.author.bot) return;
