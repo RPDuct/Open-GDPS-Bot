@@ -2,7 +2,7 @@
 require "../incl/lib/connection.php";
 if (!empty($_GET['user']) and !empty($_GET['page']) and is_numeric($_GET['page'])) {
     $page = $_GET['page'] - 1;
-    $user = preg_replace('/[^a-zA-Z0-9]/', '', $_GET['user']);
+    $user = preg_replace('/[^a-zA-Z0-9\s]/', '', $_GET['user']);
     $query = $db->prepare("
         SELECT userName FROM accounts
         WHERE userName = '$user'
