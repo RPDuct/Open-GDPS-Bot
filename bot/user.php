@@ -1,7 +1,7 @@
 <?php
 require "../incl/lib/connection.php";
 if (!empty($_GET['user'])) {
-    $user = preg_replace('/[^a-zA-Z0-9]/', '', $_GET['user']);
+    $user = preg_replace('/[^a-zA-Z0-9\s]/', '', $_GET['user']);
     if (is_numeric($user)) {
         $search = "a.extID = $user";
     } else {
