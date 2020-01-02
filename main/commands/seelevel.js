@@ -3,7 +3,7 @@ const request = require('request');
 
 
 function exeptions(message, config) {
-    if ((message.content.startsWith(config.prefix + "level ") && "level".length != message.content.length - 2) || "level".length == message.content.length - 2) {
+    if ((message.content.startsWith(config.prefix + "level ") && "level".length != message.content.length - config.prefix.length) || "level".length == message.content.length - config.prefix.length) {
         let args = message.content.split(' ');
         if (typeof args[1] !== 'undefined') {
                 let level = "";
