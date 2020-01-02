@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 
 
 function exceptions(message, config) {
-    if ((message.content.startsWith(config.prefix + "help ") && "help".length != message.content.length - 2) || "help".length == message.content.length - 2) {
+    if ((message.content.startsWith(config.prefix + "help ") && "help".length != message.content.length - config.prefix.length) || "help".length == message.content.length - config.prefix.length) {
         let args = message.content.split(' ');
         if (typeof args[1] !== 'undefined') {
             build(args[1], message, config);
