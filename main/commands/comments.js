@@ -4,7 +4,7 @@ const timetodate = require('./../tools/timeToDate.js');
 
 
 function exeptions(message, config) {
-    if ((message.content.startsWith(config.prefix + "comments ") && "comments".length != message.content.length - 2) || "comments".length == message.content.length - 2) {
+    if ((message.content.startsWith(config.prefix + "comments ") && "comments".length != message.content.length - config.prefix.length) || "comments".length == message.content.length - config.prefix.length) {
         let args = message.content.split(' ');
         if (typeof args[1] !== 'undefined') {
             build(message, args, config);
