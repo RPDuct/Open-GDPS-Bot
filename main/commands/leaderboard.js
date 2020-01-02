@@ -4,7 +4,7 @@ const pixelWidth = require('string-pixel-width');
 
 
 function exeptions(message, config) {
-    if ((message.content.startsWith(config.prefix + "leaderboard ") && "leaderboard".length - 2 != message.content.length) || "leaderboard".length == message.content.length - 2) {
+    if ((message.content.startsWith(config.prefix + "leaderboard ") && "leaderboard".length - config.prefix.length != message.content.length) || "leaderboard".length == message.content.length - config.prefix.length) {
         let args = message.content.split(' ');
         if (typeof args[1] !== 'undefined') {
             if (!isNaN(args[1]) && args[1] < 2147483647 && args[1] >= 1) {
