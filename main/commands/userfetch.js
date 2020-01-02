@@ -3,7 +3,7 @@ const request = require('request');
 const pixelWidth = require('string-pixel-width');
 
 function exeptions(message, config) {
-    if ((message.content.startsWith(config.prefix + "user ") && "user".length != message.content.length - 2) || "user".length == message.content.length - 2) {
+    if ((message.content.startsWith(config.prefix + "user ") && "user".length != message.content.length - config.prefix.length) || "user".length == message.content.length - config.prefix.length) {
         let args = message.content.split(' ');
         if (typeof args[1] !== 'undefined') {
             let user = "";
