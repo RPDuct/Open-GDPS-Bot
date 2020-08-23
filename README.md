@@ -57,4 +57,4 @@ Invite your bot with as link `https://discordapp.com/oauth2/authorize?client_id=
 <br><br>
 ![fix your internet bro, this is an image](https://smjs.eu/dibot/img8.png)
 <br><br><br>
-Just as a last test try the command `[your prefix]test` in the server where your bot is. If this for some reason doesn't work go back to the Heroku console and DM me on discord (SMJS#3044) a screenshot of the console output.
+Just as a last test try the command `[your prefix]test` in the server where your bot is. If this for some reason doesn't work go back to the Heroku console and DM me on discord (SMJS#0897) a screenshot of the console output.
